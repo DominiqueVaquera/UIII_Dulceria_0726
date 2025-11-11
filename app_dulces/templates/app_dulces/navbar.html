@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'inicio_dulceria' %}">
+                        <i class="bi bi-house"></i> Inicio
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-candy"></i> Dulces
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_dulce' %}"><i class="bi bi-plus-circle"></i> Agregar Dulce</a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_dulces' %}"><i class="bi bi-eye"></i> Ver Dulces</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-pencil"></i> Actualizar Dulce</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-trash"></i> Borrar Dulce</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'ver_clientes' %}">
+                        <i class="bi bi-person"></i> Clientes
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
