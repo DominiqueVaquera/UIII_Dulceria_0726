@@ -1,0 +1,31 @@
+{% extends 'app_dulces/base.html' %}
+{% load static %}
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 text-primary mb-4">Bienvenido al Sistema de Administración Dulcería</h1>
+    <p class="lead mb-5">Sistema diseñado para la gestión eficiente de dulces de dulcería.</p>
+    
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <img src="{% static 'images.jpg' %}" 
+                alt="Dulcería" 
+                class="img-fluid rounded shadow-lg mb-4"
+                 style="max-height: 400px; object-fit: cover;">
+        </div>
+    </div>
+    
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">
+                        <i class="bi bi-candy fs-1"></i>
+                    </h5>
+                    <h6 class="card-subtitle mb-2">Gestión de Dulces</h6>
+                    <p class="card-text">Administra el inventario de productos dulces.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'app_dulces/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-danger mb-4">Borrar Cliente</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">¿Estás seguro de que quieres borrar este cliente?</h5>
+            <p class="card-text">
+                <strong>Nombre:</strong> {{ cliente.nombre }} {{ cliente.apellido }}<br>
+                <strong>Email:</strong> {{ cliente.email }}<br>
+                <strong>Teléfono:</strong> {{ cliente.telefono|default:"No especificado" }}<br>
+                <strong>Dirección:</strong> {{ cliente.direccion|default:"No especificada" }}<br>
+                <strong>Fecha de Registro:</strong> {{ cliente.fecha_registro }}
+            </p>
+            <p class="text-muted">Esta acción no se puede deshacer.</p>
+        </div>
+    </div>
+
+    <form method="POST" action="{% url 'realizar_borrado_cliente' cliente.id %}" class="mt-4">
+        {% csrf_token %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{% url 'ver_clientes' %}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-danger">Borrar Cliente</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

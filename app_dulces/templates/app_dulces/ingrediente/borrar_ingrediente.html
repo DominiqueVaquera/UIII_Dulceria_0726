@@ -1,0 +1,24 @@
+{% extends 'app_dulces/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-danger mb-4">Eliminar Ingrediente</h2>
+
+    <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">¿Estás seguro de que deseas eliminar este ingrediente?</h4>
+        <p>Esta acción no se puede deshacer. Los datos del ingrediente se perderán permanentemente.</p>
+        <hr>
+        <p class="mb-0"><strong>Ingrediente:</strong> {{ ingrediente.nombre }}</p>
+        <p class="mb-0"><strong>Proveedor:</strong> {{ ingrediente.proveedor.nombre }}</p>
+        <p class="mb-0"><strong>Stock:</strong> {{ ingrediente.stock }} {{ ingrediente.unidad_medida }}</p>
+    </div>
+
+    <form method="POST" action="{% url 'realizar_borrado_ingrediente' ingrediente.id %}">
+        {% csrf_token %}
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{% url 'ver_ingredientes' %}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-danger">Eliminar Ingrediente</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

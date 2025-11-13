@@ -1,0 +1,58 @@
+{% extends 'app_dulces/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-primary mb-4">Agregar Nuevo Pedido</h2>
+
+    <form method="POST" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="id_pedido" class="form-label">ID del Pedido</label>
+                <input type="text" class="form-control" id="id_pedido" name="id_pedido" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="direccion_envio" class="form-label">Dirección de Envío</label>
+                <input type="text" class="form-control" id="direccion_envio" name="direccion_envio" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="cliente" class="form-label">Cliente</label>
+                <select class="form-control" id="cliente" name="cliente" required>
+                    <option value="">Seleccionar Cliente</option>
+                    {% for cliente in clientes %}
+                    <option value="{{ cliente.id }}">{{ cliente.nombre }} {{ cliente.apellido }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="dulce" class="form-label">Dulce</label>
+                <select class="form-control" id="dulce" name="dulce" required>
+                    <option value="">Seleccionar Dulce</option>
+                    {% for dulce in dulces %}
+                    <option value="{{ dulce.id }}">{{ dulce.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="estado" class="form-label">Estado</label>
+                <input type="text" class="form-control" id="estado" name="estado" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="metodo_pago" class="form-label">Método de Pago</label>
+                <input type="text" class="form-control" id="metodo_pago" name="metodo_pago" required>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="{% url 'ver_Pedido' %}" class="btn btn-secondary me-md-2">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Guardar Pedido</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
